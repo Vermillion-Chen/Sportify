@@ -141,14 +141,14 @@
 
         button {
             margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
             font-weight: 400;
             line-height: 1.4;
             color: #f3f3f3;
             border: none;
         }
-        .submit-button {
+        #submit {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
             display: block;
             width: 250px;
             height: 250px;
@@ -157,7 +157,11 @@
             color: #f3f3f3;
             border-radius: 50%;
             cursor: pointer;
+            border: 1px solid #0F0F10;
             }
+        #submit:hover {
+            background: #49b372;
+        }
     </style>
 
 </head>
@@ -182,12 +186,33 @@
             </svg>
         </div>
     </section>
-    <!-- <div class="rotate"><div class="spacer layerwave1"></div></div> -->
     <section class="light">
         <h1>Try It Out!</h1>
-        <button type="submit" id="submit" class="submit-button">
-            Submit Photo
-          </button>
+        <input type="file" id="real-file" hidden="hidden" />
+        <button type="button" id="submit">
+            Choose a Photo
+        </button>
+        <br>
+        <span id="file-text">No file chosen yet.</span>
+        <script type="text/javascript">
+            const realFileBtn = document.getElementById("real-file");
+            const customBtn = document.getElementById("submit");
+            const customTxt = document.getElementById("file-text");
+
+            customBtn.addEventListener("click", function() {
+            realFileBtn.click();
+            });
+
+            realFileBtn.addEventListener("change", function() {
+            if (realFileBtn.value) {
+                customTxt.innerHTML = realFileBtn.value.match(
+                /[\/\\]([\w\d\s\.\-\(\)]+)$/
+                )[1];
+            } else {
+                customTxt.innerHTML = "No file chosen yet.";
+            }
+            });
+        </script>
     </section>
     <div class="spacer layerwave2"></div>
 </body>

@@ -1,4 +1,4 @@
-# Sportify
+![alt text](https://github.com/Vermillion-Chen/Sportify/blob/main/static/images/Sportify_Logo.png?raw=true)
 #### This was a project for the McGill Artificial Intelligence Society Hacks 2021. It is an AI web application that uses computer vision to analyze a user's  workout form, ensuring that good form is kept throughout the duration of a workout.
 
 ## Inspiration

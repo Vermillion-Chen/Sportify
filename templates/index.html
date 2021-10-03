@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            background: #202731;
+            overflow-x: hidden;
+            font-size: 24px;
+            text-align: center;
+        }
+        
+        logobar {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 200px;
+            padding: 50px 20vw;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        section {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 400px;
+            padding: 100px 20vw;
+        }
+
+        .orange {
+            background: #DD603a;
+        }
+        .red {
+            background: #dd3f31;
+        }
+        .dark {
+            background: #0F0F10;
+        }
+        .light {
+            background: #555755;
+        }
+
+        .curve {
+            position: absolute;
+            height: 225px;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .curve::before {
+            content: '';
+            display: block;
+            position: absolute;
+            border-radius: 100% 50%;
+            width: 55%;
+            height: 100%;
+            background-color: #202731;
+            transform: translate(85%, 60%);
+        }
+        .curve::after {
+            content: '';
+            display: block;
+            position: absolute;
+            border-radius: 100% 50%;
+            width: 55%;
+            height: 100%;
+            background-color: #3c31dd;
+            transform: translate(-4%, 40%);
+            z-index: -1;
+        }
+
+        .wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave svg {
+            position: relative;
+            display: block;
+            width: calc(120% + 1.3px);
+            height: 220px;
+        }
+
+        .wave .shape-fill {
+            fill: #202731;
+        }
+        
+        .wave2 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .wave2 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 141px;
+        }
+
+        .wave2 .shape-fill {
+            fill: #555755;
+        }
+
+        .spacer {
+            aspect-ratio: 900/300;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        .layerwave1 {
+            background-image: url({{ url_for('static', filename='images/layer1.svg')}});
+        }
+
+        .layerwave2 {
+            background-image: url({{ url_for('static', filename='images/layer2.svg')}});
+        }
+
+        button {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.4;
+            color: #f3f3f3;
+            border: none;
+        }
+        .submit-button {
+            display: block;
+            width: 250px;
+            height: 250px;
+            padding: 0.75rem;
+            background: #37af65;
+            color: #f3f3f3;
+            border-radius: 50%;
+            cursor: pointer;
+            }
+    </style>
+
+</head>
+<body>
+    <logobar>
+        <img src="{{ url_for('static', filename='images/Sportify_Logo.png')}}" alt="Sportify Logo">
+    </logobar>
+    
+    <section class="red">
+        <h1>The Future of Home Workouts</h1>
+        <p><br>Revolutionize your home gym experience and improve your gains with Sportify! <br><br><br>
+            Using AI technology, Sportify ensures you always have perfect form during workouts to maximize the efficiency of workouts while simultaneously minimizing the risk of injury.</p>
+        
+        <div class="wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="wave2">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+    <!-- <div class="rotate"><div class="spacer layerwave1"></div></div> -->
+    <section class="light">
+        <h1>Try It Out!</h1>
+        <button type="submit" id="submit" class="submit-button">
+            Submit Photo
+          </button>
+    </section>
+    <div class="spacer layerwave2"></div>
+</body>
+</html>
